@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is Zend Framework module with API client to access Share-A-Sale API
+Zend Framework module with API client to access Share-A-Sale API
 
 ## Installation
 Install the module using Composer into your application's vendor directory. Add the following line to your
@@ -64,31 +64,32 @@ php public/index.php shareasale activity -v
 ```
 ## Implemented Service Methods:
 
-* activity
-* activitySummary
-* merchantTimespan
-* dailyActivity
-* monthlySummary
-* voidtrail
-* traffic
-* apitokencount
-* getProducts
-* invalidLinks
-* orderInquiry
-* merchantDataFeeds
-* couponDeals
-* merchantStatus
-* merchantCreative
-* merchantGiftCard
-* edittrail
-* paymentSummary
-* merchantSearch
-* merchantSearchProduct
-* ledger
-* balance
+* **activity**
+* **activitySummary**
+* **merchantTimespan**
+* **dailyActivity**
+* **monthlySummary**
+* **voidtrail**
+* **traffic**
+* **apitokencount**
+* **getProducts**
+* **invalidLinks**
+* **orderInquiry**
+* **merchantDataFeeds**
+* **couponDeals**
+* **merchantStatus**
+* **merchantCreative**
+* **merchantGiftCard**
+* **edittrail**
+* **paymentSummary**
+* **merchantSearch**
+* **merchantSearchProduct**
+* **ledger**
+* **balance**
 
 
 
 ## Links
 
-* [Zend Framework website](http://framework.zend.com)__
+* [Zend Framework website](http://framework.zend.com)
+* [ShareASale website](https://www.shareasale.com)
