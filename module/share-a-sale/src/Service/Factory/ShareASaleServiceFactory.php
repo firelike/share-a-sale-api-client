@@ -7,12 +7,12 @@ use Zend\ServiceManager\Factory\FactoryInterface;
 use Interop\Container\ContainerInterface;
 
 
-class ShareASaleFactory implements FactoryInterface
+class ShareASaleServiceFactory implements FactoryInterface
 {
 
     public function __invoke(ContainerInterface $sm, $requestedName, array $options = null)
     {
-        $service = new \ShareASale\Service\ShareASale();
+        $service = new \ShareASale\Service\ShareASaleService();
 
         $config = $sm->get('Config');
         if (isset($config['shareasale_service'])) {
@@ -38,6 +38,8 @@ class ShareASaleFactory implements FactoryInterface
             }
 
         }
+
+        $service->setBasicServiceMethodValidator($sm->get('ShareASale\Validator\BasicServiceMethodParametersValidator'));
 
         return $service;
     }

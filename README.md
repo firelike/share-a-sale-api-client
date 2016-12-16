@@ -42,62 +42,51 @@ return [
 
 ## Usage
 
-### activity:
+Calling from your code:
+
+```php
+        $service = new \ShareASale\Service\ShareASaleService();
+        
+        $options = array(
+            'dateStart' => '6/22/2016',
+        );
+        
+        $records = $service->activity($options);
+        
+        var_dump($records);
+        
+```
+
+Using the console:
+
 ```php
 php public/index.php shareasale activity -v
 ```
-### activitySummary:
-```php
-php public/index.php shareasale activity-summary -v
-```
-### merchantTimespan:
-```php
-php public/index.php shareasale merchant-timespan -v
-```
-### monthlySummary:
-```php
-php public/index.php shareasale monthly-summary -v
-```
-### traffic:
-```php
-php public/index.php shareasale traffic -v
-```
-### getProducts:
-```php
-php public/index.php shareasale get-products -v
-```
-### invalidLinks:
-```php
-php public/index.php shareasale invalid-links -v
-```
-### merchantDataFeeds:
-```php
-php public/index.php shareasale merchant-data-feeds -v
-```
-### couponDeals:
-```php
-php public/index.php shareasale coupon-deals -v
-```
-### merchantStatus:
-```php
-php public/index.php shareasale merchant-status -v
-```
-### merchantCreative:
-```php
-php public/index.php shareasale merchant-creative -v
-```
-### merchantGiftCard:
-```php
-php public/index.php shareasale merchant-gift-card -v
-```
-### paymentSummary:
-```php
-php public/index.php shareasale payment-summary -v
-```
-### merchantSearch:
-```php
-php public/index.php shareasale merchant-search -v
-```
+## Implemented Service Methods:
+
+* activity
+* activitySummary
+* merchantTimespan
+* dailyActivity
+* monthlySummary
+* voidtrail
+* traffic
+* apitokencount
+* getProducts
+* invalidLinks
+* orderInquiry
+* merchantDataFeeds
+* couponDeals
+* merchantStatus
+* merchantCreative
+* merchantGiftCard
+* edittrail
+* paymentSummary
+* merchantSearch
+* merchantSearchProduct
+* ledger
+* balance
+
 
 
 ## Links

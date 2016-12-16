@@ -7,7 +7,7 @@ use Zend\Mvc\Console\Controller\AbstractConsoleController;
 class ConsoleController extends AbstractConsoleController
 {
     /**
-     * @var \ShareASale\Service\ShareASale
+     * @var \ShareASale\Service\ShareASaleService
      */
     protected $service;
 
@@ -15,18 +15,11 @@ class ConsoleController extends AbstractConsoleController
     {
         $this->markBegin();
 
-        $request = $this->getRequest();
-        $verbose = $request->getParam('verbose') || $request->getParam('v');
-
         $options = array(
             'dateStart' => '04/01/2013',
         );
         $records = $this->getService()->activity($options);
         \Zend\Debug\Debug::dump($records);
-
-        if ($verbose) {
-            $this->getConsole()->writeLine("Done");
-        }
 
         $this->markEnd();
     }
@@ -35,16 +28,10 @@ class ConsoleController extends AbstractConsoleController
     {
         $this->markBegin();
 
-        $request = $this->getRequest();
-        $verbose = $request->getParam('verbose') || $request->getParam('v');
-
         $options = [];
         $records = $this->getService()->activitySummary($options);
         \Zend\Debug\Debug::dump($records);
 
-        if ($verbose) {
-            $this->getConsole()->writeLine("Done");
-        }
 
         $this->markEnd();
     }
@@ -52,9 +39,6 @@ class ConsoleController extends AbstractConsoleController
     public function merchantTimespanAction()
     {
         $this->markBegin();
-
-        $request = $this->getRequest();
-        $verbose = $request->getParam('verbose') || $request->getParam('v');
 
         $options = array(
             'dateStart' => '04/01/2016',
@@ -64,9 +48,16 @@ class ConsoleController extends AbstractConsoleController
         $records = $this->getService()->merchantTimespan($options);
         \Zend\Debug\Debug::dump($records);
 
-        if ($verbose) {
-            $this->getConsole()->writeLine("Done");
-        }
+        $this->markEnd();
+    }
+
+    public function dailyActivityAction()
+    {
+        $this->markBegin();
+
+        $options = [];
+        $records = $this->getService()->dailyActivity($options);
+        \Zend\Debug\Debug::dump($records);
 
         $this->markEnd();
     }
@@ -75,18 +66,22 @@ class ConsoleController extends AbstractConsoleController
     {
         $this->markBegin();
 
-        $request = $this->getRequest();
-        $verbose = $request->getParam('verbose') || $request->getParam('v');
-
         $options = array(
             'dateMonth' => '04/01/2016'
         );
         $records = $this->getService()->monthlySummary($options);
         \Zend\Debug\Debug::dump($records);
 
-        if ($verbose) {
-            $this->getConsole()->writeLine("Done");
-        }
+        $this->markEnd();
+    }
+
+    public function voidtrailAction()
+    {
+        $this->markBegin();
+
+        $options = [];
+        $records = $this->getService()->voidtrail($options);
+        \Zend\Debug\Debug::dump($records);
 
         $this->markEnd();
     }
@@ -95,22 +90,23 @@ class ConsoleController extends AbstractConsoleController
     {
         $this->markBegin();
 
-        $request = $this->getRequest();
-        $verbose = $request->getParam('verbose') || $request->getParam('v');
-
         $options = array(
             'dateStart' => '04/01/2013',
             'dateEnd' => '04/30/2013',
         );
-        $items = $this->getService()->traffic($options);
+        $records = $this->getService()->traffic($options);
+        \Zend\Debug\Debug::dump($records);
 
-        foreach ($items as $item) {
-            \Zend\Debug\Debug::dump($item);
-        }
+        $this->markEnd();
+    }
 
-        if ($verbose) {
-            $this->getConsole()->writeLine("Done");
-        }
+    public function apitokencountAction()
+    {
+        $this->markBegin();
+
+        $options = [];
+        $records = $this->getService()->apitokencount($options);
+        \Zend\Debug\Debug::dump($records);
 
         $this->markEnd();
     }
@@ -119,18 +115,11 @@ class ConsoleController extends AbstractConsoleController
     {
         $this->markBegin();
 
-        $request = $this->getRequest();
-        $verbose = $request->getParam('verbose') || $request->getParam('v');
-
         $options = [
             'keyword' => 'baby'
         ];
         $records = $this->getService()->getProducts($options);
         \Zend\Debug\Debug::dump($records);
-
-        if ($verbose) {
-            $this->getConsole()->writeLine("Done");
-        }
 
         $this->markEnd();
     }
@@ -139,73 +128,24 @@ class ConsoleController extends AbstractConsoleController
     {
         $this->markBegin();
 
-        $request = $this->getRequest();
-        $verbose = $request->getParam('verbose') || $request->getParam('v');
-
         $options = [];
         $records = $this->getService()->invalidLinks($options);
         \Zend\Debug\Debug::dump($records);
 
-        if ($verbose) {
-            $this->getConsole()->writeLine("Done");
-        }
-
         $this->markEnd();
     }
 
-    public function couponDealsAction()
+    public function orderInquiryAction()
     {
         $this->markBegin();
 
-        $request = $this->getRequest();
-        $verbose = $request->getParam('verbose') || $request->getParam('v');
-
-        $options = [];
-        $records = $this->getService()->couponDeals($options);
-        \Zend\Debug\Debug::dump($records);
-
-        if ($verbose) {
-            $this->getConsole()->writeLine("Done");
-        }
-
-        $this->markEnd();
-    }
-
-    public function merchantStatusAction()
-    {
-        $this->markBegin();
-
-        $request = $this->getRequest();
-        $verbose = $request->getParam('verbose') || $request->getParam('v');
-
-        $options = [];
-        $records = $this->getService()->merchantStatus($options);
-        \Zend\Debug\Debug::dump($records);
-
-        if ($verbose) {
-            $this->getConsole()->writeLine("Done");
-        }
-
-        $this->markEnd();
-    }
-
-    public function merchantCreativeAction()
-    {
-        $this->markBegin();
-
-        $request = $this->getRequest();
-        $verbose = $request->getParam('verbose') || $request->getParam('v');
-
-        // random house
         $options = [
-            'merchantId' => '12943'
+            'merchantId' => '12943',
+            'orderDate' => '10/10/2016',
+            'orderNumber' => '123456',
         ];
-        $records = $this->getService()->merchantCreative($options);
+        $records = $this->getService()->orderInquiry($options);
         \Zend\Debug\Debug::dump($records);
-
-        if ($verbose) {
-            $this->getConsole()->writeLine("Done");
-        }
 
         $this->markEnd();
     }
@@ -214,34 +154,70 @@ class ConsoleController extends AbstractConsoleController
     {
         $this->markBegin();
 
-        $request = $this->getRequest();
-        $verbose = $request->getParam('verbose') || $request->getParam('v');
-
         $options = [];
         $records = $this->getService()->merchantDataFeeds($options);
         \Zend\Debug\Debug::dump($records);
 
-        if ($verbose) {
-            $this->getConsole()->writeLine("Done");
-        }
+        $this->markEnd();
+    }
+
+    public function couponDealsAction()
+    {
+        $this->markBegin();
+
+        $options = [];
+        $records = $this->getService()->couponDeals($options);
+        \Zend\Debug\Debug::dump($records);
 
         $this->markEnd();
     }
+
+    public function merchantStatusAction()
+    {
+        $this->markBegin();
+
+        $options = [];
+        $records = $this->getService()->merchantStatus($options);
+        \Zend\Debug\Debug::dump($records);
+
+        $this->markEnd();
+    }
+
+    public function merchantCreativeAction()
+    {
+        $this->markBegin();
+
+        // random house
+        $options = [
+            'merchantId' => '12943'
+        ];
+        $records = $this->getService()->merchantCreative($options);
+        \Zend\Debug\Debug::dump($records);
+
+        $this->markEnd();
+    }
+
 
     public function merchantGiftCardAction()
     {
         $this->markBegin();
 
-        $request = $this->getRequest();
-        $verbose = $request->getParam('verbose') || $request->getParam('v');
-
         $options = [];
         $records = $this->getService()->merchantGiftCard($options);
         \Zend\Debug\Debug::dump($records);
 
-        if ($verbose) {
-            $this->getConsole()->writeLine("Done");
-        }
+        $this->markEnd();
+    }
+
+    public function edittrailAction()
+    {
+        $this->markBegin();
+
+        $options = [
+            'dateStart' => '10/10/2016'
+        ];
+        $records = $this->getService()->edittrail($options);
+        \Zend\Debug\Debug::dump($records);
 
         $this->markEnd();
     }
@@ -250,17 +226,12 @@ class ConsoleController extends AbstractConsoleController
     {
         $this->markBegin();
 
-        $request = $this->getRequest();
-        $verbose = $request->getParam('verbose') || $request->getParam('v');
-
         // must be 20th of the month within last 12 mo.
-        $options = ['paymentDate'=>'10/20/2016'];
+        $options = [
+            'paymentDate' => '10/20/2016'
+        ];
         $records = $this->getService()->paymentSummary($options);
         \Zend\Debug\Debug::dump($records);
-
-        if ($verbose) {
-            $this->getConsole()->writeLine("Done");
-        }
 
         $this->markEnd();
     }
@@ -270,22 +241,50 @@ class ConsoleController extends AbstractConsoleController
     {
         $this->markBegin();
 
-        $request = $this->getRequest();
-        $verbose = $request->getParam('verbose') || $request->getParam('v');
-
         $options = [
-            'Keyword'=>'Food'
+            'Keyword' => 'Food'
         ];
         $records = $this->getService()->merchantSearch($options);
         \Zend\Debug\Debug::dump($records);
 
-        if ($verbose) {
-            $this->getConsole()->writeLine("Done");
-        }
+        $this->markEnd();
+    }
+
+    public function merchantSearchProductAction()
+    {
+        $this->markBegin();
+
+        $options = [
+            'keyword' => 'baseball',
+            'notjoined' => 1
+        ];
+        $records = $this->getService()->merchantSearchProduct($options);
+        \Zend\Debug\Debug::dump($records);
 
         $this->markEnd();
     }
 
+    public function ledgerAction()
+    {
+        $this->markBegin();
+
+        $options = [];
+        $records = $this->getService()->ledger($options);
+        \Zend\Debug\Debug::dump($records);
+
+        $this->markEnd();
+    }
+
+    public function balanceAction()
+    {
+        $this->markBegin();
+
+        $options = [];
+        $records = $this->getService()->balance($options);
+        \Zend\Debug\Debug::dump($records);
+
+        $this->markEnd();
+    }
 
     public function markBegin()
     {
@@ -294,11 +293,18 @@ class ConsoleController extends AbstractConsoleController
 
     public function markEnd()
     {
+        $request = $this->getRequest();
+        $verbose = $request->getParam('verbose') || $request->getParam('v');
+
+        if ($verbose) {
+            $this->getConsole()->writeLine("Done");
+        }
+
         $this->getConsole()->writeLine('============== END ==============');
     }
 
     /**
-     * @return \ShareASale\Service\ShareASale
+     * @return \ShareASale\Service\ShareASaleService
      */
     public function getService()
     {
@@ -306,7 +312,7 @@ class ConsoleController extends AbstractConsoleController
     }
 
     /**
-     * @param \ShareASale\Service\ShareASale $service
+     * @param \ShareASale\Service\ShareASaleService $service
      */
     public function setService($service)
     {
