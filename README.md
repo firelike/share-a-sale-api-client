@@ -48,11 +48,13 @@ return [
 Calling from your code:
 
 ```php
-        $service = new \Firelike\ShareASale\Service\ShareASaleService();
+        use Firelike\ShareASale\Service\ShareASaleService;
         
-        $options = array(
+        $service = new ShareASaleService();
+        
+        $options = [
             'dateStart' => '6/22/2016',
-        );
+        ];
         
         $records = $service->activity($options);
         
