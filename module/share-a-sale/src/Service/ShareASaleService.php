@@ -213,6 +213,14 @@ class ShareASaleService
 
     protected function getDefaultArguments()
     {
+        if (
+            !$this->getVersion()
+            || !$this->getAffiliateId()
+            || !$this->getToken()
+        ) {
+            throw new \Exception('Required Parameter is not set');
+        }
+
         return array(
             'version' => $this->getVersion(),
             'affiliateId' => $this->getAffiliateId(),
@@ -251,6 +259,13 @@ class ShareASaleService
 
     public function apiCall($actionVerb, $query)
     {
+        if (
+            !$this->getToken()
+            || !$this->getSecretKey()
+        ) {
+            throw new \Exception('Required Parameter is not set');
+        }
+
         try {
 
             $client = new Client([
