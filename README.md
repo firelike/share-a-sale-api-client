@@ -22,7 +22,7 @@ Enable the module in your `application.config.php` file.
 ```php
 return array(
     'modules' => array(
-        'ShareASale'
+        'Firelike\ShareASale'
     )
 );
 ```
