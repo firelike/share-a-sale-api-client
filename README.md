@@ -27,12 +27,15 @@ return array(
 );
 ```
 
-Add your Share-A-Sale API credentials in `local.php`. Your `local.php` might look something like the following:
+Copy and paste the `shareasale.local.php.dist` file to your `config/autoload` folder and customize it with your credentials and
+other configuration settings. Make sure to remove `.dist` from your file.Your `shareasale.local.php` might look something like the following:
 
 ```php
 <?php
 return [
     'shareasale_service' => [
+        'service_url' => 'https://shareasale.com',
+        'service_version' => '2.1',
         'affiliate_id' => '<affiliate-id>',
         'token' => '<token>',
         'secret_key' => '<secret-key>',

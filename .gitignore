@@ -7,5 +7,4 @@
 *.iml
 out
 gen
-/config/autoload/local.php
 /vendor/

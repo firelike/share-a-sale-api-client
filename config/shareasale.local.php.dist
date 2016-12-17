@@ -1,0 +1,12 @@
+<?php
+return [
+    'shareasale_service' => [
+        'service_url' => 'https://shareasale.com',
+        'service_version' => '2.1',
+        'affiliate_id' => '',
+        'token' => '',
+        'secret_key' => '',
+    ]
+];
+
+
