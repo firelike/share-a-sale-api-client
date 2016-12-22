@@ -2,6 +2,7 @@
   "name": "firelike/share-a-sale-api-client",
   "description": "PHP client for Share-A-Sale API",
   "type": "library",
+  "license": "BSD-3-Clause",
   "repositories": [
     {
       "type": "composer",
