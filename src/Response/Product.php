@@ -608,7 +608,7 @@ class Product extends AbstractResponse
 
     /**
      *
-     * @return $reservedforfutureuse
+     * @return array $reservedforfutureuse
      */
     public function getReservedforfutureuse()
     {

@@ -1,8 +1,11 @@
 ## Share-A-Sale API Client
 
+[![Build Status](https://travis-ci.org/firelike/share-a-sale-api-client.svg?branch=master&format=flat-square)](https://travis-ci.org/firelike/share-a-sale-api-client)
+[![License](https://poser.pugx.org/firelike/share-a-sale-api-client/license?format=flat-square)](https://packagist.org/packages/firelike/share-a-sale-api-client)
+
 ## Introduction
 
-Zend Framework module with API client to access Share-A-Sale API
+Zend Framework module to consume Share-A-Sale API
 
 ## Installation
 Install the module using Composer into your application's vendor directory. Add the following line to your
