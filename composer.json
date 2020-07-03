@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": "^7.0 || ^8.0",
+        "php": "^7.2 || ^8.0",
         "guzzlehttp/guzzle": "^6.2",
         "laminas/laminas-servicemanager": "^3.1",
         "laminas/laminas-validator": "^2.8",
