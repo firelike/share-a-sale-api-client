@@ -3,7 +3,7 @@ namespace Firelike\ShareASale\Validator\Factory;
 
 
 use Firelike\ShareASale\Validator\BasicServiceMethodParametersValidator;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 use Interop\Container\ContainerInterface;
 
 

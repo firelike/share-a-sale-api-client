@@ -3,7 +3,7 @@ namespace Firelike\ShareASale\Controller\Factory;
 
 
 use Firelike\ShareASale\Controller\ConsoleController;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 use Interop\Container\ContainerInterface;
 
 

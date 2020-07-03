@@ -1,7 +1,7 @@
 <?php
 namespace Firelike\ShareASale\Controller;
 
-use Zend\Mvc\Console\Controller\AbstractConsoleController;
+use Laminas\Mvc\Console\Controller\AbstractConsoleController;
 
 
 class ConsoleController extends AbstractConsoleController

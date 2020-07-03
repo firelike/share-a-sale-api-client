@@ -2,8 +2,8 @@
 namespace Firelike\ShareASale\Validator;
 
 
-use Zend\Validator\AbstractValidator;
-use Zend\Validator\NotEmpty;
+use Laminas\Validator\AbstractValidator;
+use Laminas\Validator\NotEmpty;
 
 class DefaultParametersNotEmptyValidator extends AbstractValidator
 {

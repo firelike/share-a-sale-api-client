@@ -2,8 +2,8 @@
 namespace Firelike\ShareASale\Validator;
 
 
-use Zend\Validator\AbstractValidator;
-use Zend\Validator\ValidatorChain;
+use Laminas\Validator\AbstractValidator;
+use Laminas\Validator\ValidatorChain;
 
 class BasicServiceMethodParametersValidator extends AbstractValidator
 {

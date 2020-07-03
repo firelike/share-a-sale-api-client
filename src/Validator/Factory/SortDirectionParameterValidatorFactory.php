@@ -4,7 +4,7 @@ namespace Firelike\ShareASale\Validator\Factory;
 
 
 use Firelike\ShareASale\Validator\SortDirectionParameterValidator;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 use Interop\Container\ContainerInterface;
 
 

@@ -2,8 +2,8 @@
 namespace Firelike\ShareASale\Validator;
 
 
-use Zend\Validator\AbstractValidator;
-use Zend\Validator\InArray;
+use Laminas\Validator\AbstractValidator;
+use Laminas\Validator\InArray;
 
 class ProperServiceMethodParametersValidator extends AbstractValidator
 {
